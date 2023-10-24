@@ -1,0 +1,38 @@
+@media print{
+    @page{
+        margin: 1cm;
+    }
+    /* Для станиц игр */
+    .main-menu{
+        display: none;
+    }
+    p{
+        widows: 12;
+    }
+    .game-info{
+        margin:0;
+        page-break-inside: avoid;
+        padding-left: 0.5cm;
+    }
+    .game-description{
+        margin:0;
+        padding: 0.3cm;
+    }
+    .main-page{
+        justify-content:right
+    }
+    /* Для главной страницы */
+    .header{
+        height:auto;
+        margin:0;
+        padding: 0;
+        font-size: 32px;
+    }
+    .annotation{
+        margin: 0;
+        padding: 0;
+    }
+    .fear-text-head{
+        font-size: 22px;
+    }
+}
