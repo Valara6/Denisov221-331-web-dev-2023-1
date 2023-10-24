@@ -1,0 +1,61 @@
+.back_img{
+    background-image: url(background.jpeg);
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.reg{
+    background-color: whitesmoke;
+    max-width: 500px;
+    padding: 16px;
+}
+body{
+    height: 100vh;
+}
+h1{
+    color: white;
+}
+.label{
+    color: black;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+.display-inline{
+    display: inline;
+}
+.container{
+    font-size: 20px;
+    max-width: 650px;
+    margin: 0 auto;
+}
+.text-center{
+    text-align: center;
+}
+input, textarea, select{
+    font-size: inherit;
+}
+.btn{
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    font-size: 15px;
+    margin-top: 20px;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}
+header {
+padding: 20px 0;
+}
