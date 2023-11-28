@@ -136,30 +136,46 @@ function compile(str) {
 
 function evaluate(str) {
     let stack = [];
-    let tokens = str.split(' '); //Отделяем токены
-    
-    for (let token of tokens) { // of для правильного перебора массива
-        if (isNumeric(token)) {// если число то добавляем в массив
-            stack.push(parseFloat(token));//Возвращает число из строки
+    let tokens = str.split(' ');
+
+    for (let token of tokens) {
+        //window.alert(tokens.length);
+        if (isNumeric(token)) { // если число то добавляем в массив
+            stack.push(parseFloat(token));
         } else if (isOperation(token)) { // если операция то вычисляем
-            let num1 = stack.pop();
-            let num2 = stack.pop();
+            let operand2 = stack.pop();
+            let operand1 = stack.pop();
+            // window.alert(operand1);
+            // window.alert(operand2);
 
             switch (token) {
             case '+':
-                stack.push(num1 + num2);
+                stack.push(operand1 + operand2);
                 break;
             case '-':
-                stack.push(num1 - num2);
+                if (operand2 == undefined) {
+                    //window.alert('-token');
+                    stack.push(parseFloat(-operand1));
+                    break;
+                } else if (operand1 == undefined) {
+                    //window.alert('-token');
+                    stack.push(parseFloat(-operand2));
+                    break;
+                } else {
+                    //window.alert("Вычитаю");
+                    stack.push(operand1 - operand2);
+                    break;
+                }
+            case '*':
+                stack.push(operand1 * operand2);
                 break;
             case '/':
-                stack.push(num1 / num2);
-                break;
-            case '*':
-                stack.push(num1 * num2);
+                //window.alert("Делю");
+                stack.push(operand1 / operand2);
                 break;
             }
-        } 
+        }
+       
     }
     return stack.pop();
 }
@@ -191,30 +207,28 @@ function evaluate(str) {
 // (https://javascript.info/event-delegation) so as not to set a 
 // handler for each button separately.
 
+// Назначьте нужные обработчики событий.
+// ----------------------------------------------------------------------------
+// Set event handlers.
 function clickHandler(event) {
-    let target = event.target; // получаем элемент, на котором произошло событие
-    let screen = document.querySelector(".screen");
-    if (target.classList.contains("digit") ||
-        target.classList.contains("operation") ||
-        target.classList.contains("bracket")) {
-        let buttonText = target.textContent;// получаем символ на кнопке
+    let screen = document.querySelector('.screen');
+    let buttonText = event.target.textContent;
+
+    if (event.target.classList.contains('digit') 
+    || event.target.classList.contains('operation') || 
+    event.target.classList.contains('bracket')) {
         screen.textContent += buttonText;
-    } else if (target.classList.contains("clear")) {
-        screen.textContent = "";
-    } else if (target.classList.contains("result")) {
+    } else if (event.target.classList.contains('clear')) {
+        screen.textContent = '';
+    } else if (event.target.classList.contains('result')) {
         let expression = screen.textContent;
-        // alert(expression);
-        // alert(compile(expression));
-        let result = evaluate(compile(expression));//Результат выражения
+        //alert(compile(expression));
+        let result = evaluate(compile(expression));
         screen.textContent = result;
     }
 }
 
-
-// Назначьте нужные обработчики событий.
-// ----------------------------------------------------------------------------
-// Set event handlers.
-
 window.onload = function () {
-    document.addEventListener("click", clickHandler);
+    document.addEventListener('click', clickHandler);
 };
+
