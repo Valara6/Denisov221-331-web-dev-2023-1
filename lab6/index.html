@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="container">
+    <header class="header">
+        
+        <div class="input-search">
+
+            <div class="search">
+                <input class="text" type="text" name="search" autocomplete="none" placeholder="Поиск" oninput="handleInput()" onkeydown="handleKeyDown(this)">
+                <button class="btn_search"></button> 
+            </div>
+            <div class="listbox-hint">
+                <ul class="list">
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <div class="selector">
+                <p>Показывать по</p>
+                <select name="count" id="count_select">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+                <p>записей на странице</p>
+            </div>
+            <div class="current-page">
+                <!-- Показаны записи с 171 по 180 из 191 -->
+                <p>Показаны страницы с</p>
+                <span class="since"></span>
+                <p>по</p>
+                <span class="last">1</span>
+                <p>из</p>
+                <span class="all_amount">5</span>
+            </div>
+        </div>   
+    </header>
+    <main>
+        <div class="blocks">
+            
+        </div> 
+    </main>
+
+    <footer>
+        <div class="block-buttons"> 
+            <button class="prev-page"> prev page </button>
+            <div class="block-buttons-number">
+            </div>
+            <button class="next-page"> next page </button>
+        </div>
+    </footer>
+    <template id="template-container">
+        <div class="block">
+            <div class="firstchild">
+                <p class="main-content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis nulla dolorum praesentium ducimus quod molestiae et! Molestias culpa incidunt saepe quae. Voluptate quibusdam sunt quod quaerat assumenda qui dolores quam!
+                </p>
+            </div>
+            <div class="lastchild">
+                <div class="autor">Aleks William</div>
+                <div class="like">👍
+                    <span class="count">1</span>
+                </div>
+            </div>
+        </div>
+        </template>
+    <script src="script.js"></script>
+
+</body>
+</html>
