@@ -160,6 +160,7 @@ function getRequest(hint_parameter = '') {
 
 
 searchBtn.addEventListener("click", () => {
+    currentPage = 1;
     let inputField = document.querySelector(".text");
     listboxHint.style.visibility = "hidden";
     getRequest(inputField.value);
